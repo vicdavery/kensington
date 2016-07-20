@@ -7,16 +7,7 @@ TEST(EgdeTest, CreateNewEdge)
 {
     Node n1;
     Node n2;
-    Edge e(n1, n2);
-    ASSERT_EQ(e.get_node(0), n1);
-    ASSERT_EQ(e.get_node(1), n2);
-}
-
-
-TEST(EdgeTest, CreateEdgeWithDuplicateNode)
-{
-  Node n1;
-  ASSERT_THROW(Edge e(n1, n1), DuplicateNodeException);
+    ASSERT_NO_THROW(Edge e(n1, n2));
 }
 
 
