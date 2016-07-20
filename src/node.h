@@ -1,3 +1,5 @@
+#ifndef node_h
+#define node_h
 
 namespace kensington
 {
@@ -7,8 +9,10 @@ class Node
     public:
         NodeStatus const& status() const { return status_; }
         bool occupy(NodeStatus status);
+        bool free();
 
     private:
         NodeStatus status_ = NodeStatus::EMPTY;
 };
 }
+#endif
