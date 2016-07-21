@@ -6,6 +6,9 @@ bool Node::occupy(NodeStatus status)
 {
   if (status_ != NodeStatus::EMPTY)
     return false;
+  if (status == NodeStatus::EMPTY)
+    return false;
+
   status_ = status;
   return true;
 }

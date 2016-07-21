@@ -34,7 +34,12 @@ TEST(NodeTest, AlreadyOccupied)
     ASSERT_FALSE(n.occupy(NodeStatus::BLUE));
     ASSERT_EQ(n.status(), NodeStatus::RED);
 }
+TEST(NodeTest, CallOccupyWithEMPTY)
+{
+  Node n;
+  ASSERT_FALSE(n.occupy(NodeStatus::EMPTY));
 }
+} // namespace kensington
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
