@@ -12,6 +12,9 @@ target_link_libraries(node_test ${GTEST_BOTH_LIBRARIES})
 add_executable(edge_test edge_test.cpp ../node.cpp)
 target_link_libraries(edge_test ${GTEST_BOTH_LIBRARIES})
 
+add_executable(player_test player_test.cpp )
+target_link_libraries(player_test ${GTEST_BOTH_LIBRARIES})
 
 add_test(NodeTests node_test)
 add_test(EdgeTests edge_test)
+add_test(UserTests player_test)

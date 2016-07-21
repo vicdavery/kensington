@@ -6,33 +6,33 @@ namespace kensington
 TEST(NodeTest, CreatedEmpty)
 {
     Node n;
-    ASSERT_EQ(n.status(), NodeStatus::EMPTY);
+    ASSERT_EQ(NodeStatus::EMPTY, n.status());
 }
 TEST(NodeTest, PlaceCounterRed)
 {
     Node n;
     ASSERT_TRUE(n.occupy(NodeStatus::RED));
-    ASSERT_EQ(n.status(), NodeStatus::RED);
+    ASSERT_EQ(NodeStatus::RED, n.status());
 }
 TEST(NodeTest, PlaceCounterBlue)
 {
     Node n;
     ASSERT_TRUE(n.occupy(NodeStatus::BLUE));
-    ASSERT_EQ(n.status(), NodeStatus::BLUE);
+    ASSERT_EQ(NodeStatus::BLUE, n.status());
 }
 TEST(NodeTest, RemoveCounter)
 {
     Node n;
     ASSERT_TRUE(n.occupy(NodeStatus::RED));
     ASSERT_TRUE(n.free());
-    ASSERT_EQ(n.status(), NodeStatus::EMPTY);
+    ASSERT_EQ(NodeStatus::EMPTY, n.status());
 }
 TEST(NodeTest, AlreadyOccupied)
 {
     Node n;
     ASSERT_TRUE(n.occupy(NodeStatus::RED));
     ASSERT_FALSE(n.occupy(NodeStatus::BLUE));
-    ASSERT_EQ(n.status(), NodeStatus::RED);
+    ASSERT_EQ(NodeStatus::RED, n.status());
 }
 TEST(NodeTest, CallOccupyWithEMPTY)
 {
