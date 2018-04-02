@@ -40,8 +40,3 @@ TEST(NodeTest, CallOccupyWithEMPTY)
   ASSERT_FALSE(n.occupy(NodeStatus::EMPTY));
 }
 } // namespace kensington
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
