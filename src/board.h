@@ -4,6 +4,7 @@
 #include <edge.h>
 
 #include <deque>
+#include <set>
 
 namespace kensington
 {
@@ -15,12 +16,12 @@ namespace kensington
   {
     public:
       Board() = default;
-      void add_node(Node&& n) { nodes_.push_back(std::move(n)); }
+      void add_node(Node&& n) { nodes_.insert(std::move(n)); }
       size_t num_nodes() { return nodes_.size(); }
       size_t num_edges() { return edges_.size(); }
 
     private:
-      std::deque<Node> nodes_;
+      std::set<Node> nodes_;
       std::deque<Edge> edges_;
   };
 } // namespace kensington
