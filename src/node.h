@@ -30,6 +30,8 @@ namespace kensington
        */
       bool free();
 
+      const Location& location() const { return location_; }
+
       bool operator==(const Node& rhs) const
       {
         return location_ == rhs.location_;

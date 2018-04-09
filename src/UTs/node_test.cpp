@@ -54,4 +54,10 @@ TEST(NodeTest, Equality)
   ASSERT_NE(n2, n3);
   ASSERT_NE(n3, n4);
 }
+TEST(NodeTest, CheckReportedLocation)
+{
+  Node n{{1,2}};
+  ASSERT_EQ(n.location().first, 1);
+  ASSERT_EQ(n.location().second, 2);
+}
 } // namespace kensington

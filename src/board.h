@@ -15,12 +15,14 @@ namespace kensington
   class Board
   {
     public:
-      Board() = default;
-      void add_node(Node&& n) { nodes_.insert(std::move(n)); }
+      Board(size_t width, size_t height) : width_{width}, height_{height} {};
+      bool add_node(Node&& n);
       size_t num_nodes() { return nodes_.size(); }
       size_t num_edges() { return edges_.size(); }
 
     private:
+      const size_t width_;
+      const size_t height_;
       std::set<Node> nodes_;
       std::deque<Edge> edges_;
   };
