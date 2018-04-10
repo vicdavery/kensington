@@ -8,7 +8,7 @@ jobs:
     steps:
       - run: 
         - name: Install cmake
-        - command: sudo apt-get install cmake
+        - command: 'sudo apt-get install cmake'
       - checkout
       - run: 
         - name: Config CMake
