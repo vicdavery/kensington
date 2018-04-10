@@ -4,7 +4,8 @@ general:
 jobs:
   build:
     docker:
-      - image: circleci/classic:201703-01
+      - image: circleci/classic:default
     steps:
+      - command: sudo apt-get install cmake
       - checkout
       - run: 'cmake ..'
