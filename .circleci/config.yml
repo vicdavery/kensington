@@ -3,9 +3,13 @@ general:
   build_dir: build
 jobs:
   build:
-    docker:
-      - image: circleci/classic:default
+    machine:
+      - image: circleci/classic:201708-01
     steps:
-      - run: sudo apt-get install cmake
+      - run: 
+        - name: Install cmake
+        - command: sudo apt-get install cmake
       - checkout
-      - run: 'cmake ..'
+      - run: 
+        - name: Config CMake
+        - command: 'cmake ..'
