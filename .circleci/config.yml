@@ -8,13 +8,20 @@ jobs:
     steps:
       - checkout
       - run: 
+        name: Configure Build
         command: 'cmake ..'
       -run:
+        name: Build
         command: make
   test:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/classic:latest
     steps:
       -run: 
+        name: Test
         command: 'make test'
-        
+workflows:
+  version: 2
+  build_and_test:
+    jobs: 
+      -build
