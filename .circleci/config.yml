@@ -2,7 +2,7 @@ version: 2
 general:
   build_dir: build
 jobs:
-  build:
+  build1:
     docker:
       - image: circleci/classic:latest
     steps:
@@ -24,4 +24,4 @@ workflows:
   version: 2
   build_and_test:
     jobs: 
-      -build
+      -build1
