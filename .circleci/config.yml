@@ -6,6 +6,6 @@ jobs:
     docker:
       - image: circleci/classic:default
     steps:
-      - command: sudo apt-get install cmake
+      - run: sudo apt-get install cmake
       - checkout
       - run: 'cmake ..'
