@@ -8,8 +8,6 @@ jobs:
     steps:
       - checkout
       - run: 
-        - name: Install cmake
         - command: 'sudo apt-get install cmake'
       - run: 
-        - name: Config CMake
         - command: 'cmake ..'
