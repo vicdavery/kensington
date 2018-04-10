@@ -9,5 +9,3 @@ jobs:
       - checkout
       - run: 
         - command: 'sudo apt-get install cmake'
-      - run: 
-        - command: 'cmake ..'
