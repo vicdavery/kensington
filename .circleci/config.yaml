@@ -1,4 +1,6 @@
 version: 2
+general:
+  build_dir: build
 jobs:
   build:
     docker:
@@ -6,6 +8,13 @@ jobs:
     steps:
       - checkout
       - run: 
-        name: Create build dir
-        command: mkdir build && cd build && cmake .. && make
+        command: 'cmake ..'
+      -run:
+        command: make
+  test:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      -run: 
+        command: 'make test'
         
