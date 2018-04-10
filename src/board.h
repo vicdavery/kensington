@@ -3,7 +3,6 @@
 #include <node.h>
 #include <edge.h>
 
-#include <deque>
 #include <set>
 
 namespace kensington
@@ -17,6 +16,7 @@ namespace kensington
     public:
       Board(size_t width, size_t height) : width_{width}, height_{height} {};
       bool add_node(Node&& n);
+      bool add_edge(Edge&& e);
       size_t num_nodes() { return nodes_.size(); }
       size_t num_edges() { return edges_.size(); }
 
@@ -24,6 +24,6 @@ namespace kensington
       const size_t width_;
       const size_t height_;
       std::set<Node> nodes_;
-      std::deque<Edge> edges_;
+      std::set<Edge> edges_;
   };
 } // namespace kensington

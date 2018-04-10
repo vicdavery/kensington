@@ -1,4 +1,6 @@
 #include <board.h>
+#include <edge.h>
+#include <node.h>
 #include <gtest/gtest.h>
 
 namespace kensington
@@ -31,5 +33,15 @@ namespace kensington
     b.add_node({{2,2}});
     b.add_node({{1,1}});
     ASSERT_EQ(b.num_nodes(), 1);
+  }
+  TEST(BoardTest, AddEdge)
+  {
+    Board b{3,3};
+    Node n1{{0,0}};
+    Node n2{{2,2}};
+    Edge e1{n1,n2};
+    b.add_node(std::move(n1));
+    b.add_node(std::move(n2));
+    b.add_edge(std::move(e1));
   }
 } //namespace kensington

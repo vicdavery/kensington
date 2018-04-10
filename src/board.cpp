@@ -9,4 +9,8 @@ namespace kensington
 
     return nodes_.insert(std::move(n)).second;
   }
+  bool Board::add_edge(Edge&& e)
+  {
+    return edges_.insert(std::move(e)).second;
+  }
 }

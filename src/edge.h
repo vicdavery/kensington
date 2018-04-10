@@ -36,6 +36,14 @@ namespace kensington
         throw std::out_of_range("Node number must be either 0 or 1");
       }
     }
+    bool operator<(const Edge& rhs) const
+    {
+      return nodes_.first.location().first < nodes_.second.location().second
+        ||
+        (nodes_.first.location().first == nodes_.second.location().first
+        &&
+        nodes_.first.location().second < nodes_.second.location().second);
+    }
   private:
     std::pair<Node const&, Node const&> nodes_;
   };
