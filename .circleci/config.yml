@@ -3,7 +3,7 @@ general:
   build_dir: build
 jobs:
   build:
-    machine:true
+    machine: true
     steps:
       - checkout
       - run: 'cmake ..'
