@@ -3,7 +3,8 @@ general:
   build_dir: build
 jobs:
   build:
-    machine: true
+    docker:
+      - image: circleci/classic:201703-01
     steps:
       - checkout
       - run: 'cmake ..'
