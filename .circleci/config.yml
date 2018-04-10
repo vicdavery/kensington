@@ -3,8 +3,7 @@ general:
   build_dir: build
 jobs:
   build:
-    docker:
-      - image: circleci/ruby:2.4.1
+    machine:true
     steps:
       - checkout
       - run: 'cmake ..'
