@@ -7,5 +7,5 @@ jobs:
       - image: circleci/classic:201708-01
     steps:
       - checkout
-      - run: 
-        command: 'sudo apt-get install cmake'
+      - run:
+          command: 'sudo apt-get install cmake'
