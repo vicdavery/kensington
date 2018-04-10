@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run: 
         name: Configure Build
-        command: 'cmake ..'
+        -command: 'cmake ..'
       -run:
         name: Build
         command: make
