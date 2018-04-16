@@ -29,4 +29,30 @@ namespace kensington
     node->occupy(status);
     return true;
   }
+  bool Board::remove(Location loc)
+  {
+    auto node = std::find(std::begin(nodes_), std::end(nodes_), loc);
+    if (node == nodes_.end())
+      return false;
+    if (node->status() == NodeStatus::EMPTY)
+      return false;
+    node->occupy(NodeStatus::EMPTY);
+    return true;
+
+  }
+  bool Board::move(Location from, Location to)
+  {
+    auto from_node = std::find(std::begin(nodes_), std::end(nodes_), from);
+    if (from_node == nodes_.end())
+      return false;
+    auto to_node = std::find(std::begin(nodes_), std::end(nodes_), to);
+    if (to_node == nodes_.end())
+      return false;
+    if (from_node->status() == NodeStatus::EMPTY
+        || to_node->status() != NodeStatus::EMPTY)
+      return false;
+    to_node->occupy(from_node->status());
+    from_node->occupy(NodeStatus::EMPTY);
+    return false;
+  }
 }

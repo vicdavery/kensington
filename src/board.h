@@ -23,6 +23,8 @@ namespace kensington
       size_t num_edges() { return edges_.size(); }
 
       bool occupy(Location loc, NodeStatus status);
+      bool remove(Location loc);
+      bool move(Location from, Location to);
 
     private:
       const size_t width_;
