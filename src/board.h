@@ -3,7 +3,9 @@
 #include <node.h>
 #include <edge.h>
 
+#include <deque>
 #include <set>
+#include <string>
 
 namespace kensington
 {
@@ -20,10 +22,12 @@ namespace kensington
       size_t num_nodes() { return nodes_.size(); }
       size_t num_edges() { return edges_.size(); }
 
+      bool occupy(Location loc, NodeStatus status);
+
     private:
       const size_t width_;
       const size_t height_;
-      std::set<Node> nodes_;
+      std::deque<Node> nodes_;
       std::set<Edge> edges_;
   };
 } // namespace kensington
