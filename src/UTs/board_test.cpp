@@ -104,4 +104,56 @@ namespace kensington
     b.occupy({0,0}, NodeStatus::RED);
     ASSERT_TRUE(b.move({0,0}, {2,2}));
   }
+  TEST(BoardTest, AttemptMoveCounterWithNoEdge)
+  {
+    Board b{3,3};
+    Node n1{{0,0}};
+    Node n2{{2,2}};
+    Node n3{{1,1}};
+    Edge e1{n1,n2};
+    b.add_node(std::move(n1));
+    b.add_node(std::move(n2));
+    b.add_node(std::move(n3));
+    b.add_edge(std::move(e1));
+    b.occupy({0,0}, NodeStatus::RED);
+    ASSERT_FALSE(b.move({0,0}, {1,1}));
+  }
+  TEST(BoardTest, MoveCounterToOccupiedOppponent)
+  {
+    Board b{3,3};
+    Node n1{{0,0}};
+    Node n2{{2,2}};
+    Edge e1{n1,n2};
+    b.add_node(std::move(n1));
+    b.add_node(std::move(n2));
+    b.add_edge(std::move(e1));
+    b.occupy({0,0}, NodeStatus::RED);
+    b.occupy({2,2}, NodeStatus::BLUE);
+    ASSERT_FALSE(b.move({0,0}, {2,2}));
+  }
+  TEST(BoardTest, MoveCounterToOccupiedSelf)
+  {
+    Board b{3,3};
+    Node n1{{0,0}};
+    Node n2{{2,2}};
+    Edge e1{n1,n2};
+    b.add_node(std::move(n1));
+    b.add_node(std::move(n2));
+    b.add_edge(std::move(e1));
+    b.occupy({0,0}, NodeStatus::RED);
+    b.occupy({2,2}, NodeStatus::RED);
+    ASSERT_FALSE(b.move({0,0}, {2,2}));
+  }
+  TEST(BoardTest, MoveCounterToNonExistent)
+  {
+    Board b{3,3};
+    Node n1{{0,0}};
+    Node n2{{2,2}};
+    Edge e1{n1,n2};
+    b.add_node(std::move(n1));
+    b.add_node(std::move(n2));
+    b.add_edge(std::move(e1));
+    b.occupy({0,0}, NodeStatus::RED);
+    ASSERT_FALSE(b.move({0,0}, {1,1}));
+  }
 } //namespace kensington

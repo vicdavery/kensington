@@ -51,8 +51,11 @@ namespace kensington
     if (from_node->status() == NodeStatus::EMPTY
         || to_node->status() != NodeStatus::EMPTY)
       return false;
+    if (edges_.find(Edge{*from_node,*to_node}) == edges_.end())
+      return false;
+
     to_node->occupy(from_node->status());
     from_node->occupy(NodeStatus::EMPTY);
-    return false;
+    return true;
   }
 }

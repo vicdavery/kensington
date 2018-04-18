@@ -38,6 +38,13 @@ namespace kensington
     }
     bool operator<(const Edge& rhs) const
     {
+      bool result = nodes_.first.location().first < nodes_.second.location().second;
+      result |=
+        (nodes_.first.location().first == nodes_.second.location().first
+        &&
+        nodes_.first.location().second < nodes_.second.location().second);
+      return result;
+
       return nodes_.first.location().first < nodes_.second.location().second
         ||
         (nodes_.first.location().first == nodes_.second.location().first
