@@ -38,18 +38,11 @@ namespace kensington
     }
     bool operator<(const Edge& rhs) const
     {
-      bool result = nodes_.first.location().first < nodes_.second.location().second;
-      result |=
-        (nodes_.first.location().first == nodes_.second.location().first
-        &&
-        nodes_.first.location().second < nodes_.second.location().second);
-      return result;
-
-      return nodes_.first.location().first < nodes_.second.location().second
+      return nodes_.first.location() < rhs.nodes_.first.location()
         ||
-        (nodes_.first.location().first == nodes_.second.location().first
+        (nodes_.first.location() == rhs.nodes_.first.location()
         &&
-        nodes_.first.location().second < nodes_.second.location().second);
+        nodes_.second.location() < rhs.nodes_.second.location());
     }
   private:
     std::pair<Node const&, Node const&> nodes_;
