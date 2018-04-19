@@ -1,0 +1,11 @@
+version: 2
+general:
+  build_dir: build
+jobs:
+  build:
+    machine:
+      - image: circleci/classic:201708-01
+    steps:
+      - checkout
+      - run:
+          command: 'sudo apt-get install cmake'
