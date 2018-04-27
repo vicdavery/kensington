@@ -17,7 +17,7 @@ add_executable(board_test board_test.cpp ../board.cpp ../node.cpp)
 target_link_libraries(board_test ${GTEST_BOTH_LIBRARIES})
 
 add_executable(layout_config_parser_test layout_config_parser_test.cpp)
-target_link_libraries(board_test ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(layout_config_parser_test ${GTEST_BOTH_LIBRARIES})
 
 gtest_discover_tests(node_test)
 gtest_discover_tests(edge_test)
