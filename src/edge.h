@@ -1,5 +1,4 @@
-#ifndef edge_h
-#define edge_h
+#pragma once
 
 #include "node.h"
 #include <utility>
@@ -48,4 +47,3 @@ namespace kensington
     std::pair<Node const&, Node const&> nodes_;
   };
 } // namespace kensington
-#endif

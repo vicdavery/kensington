@@ -1,5 +1,4 @@
-#ifndef Player_h
-#define Player_h
+#pragma once
 
 namespace kensington
 {
@@ -12,5 +11,3 @@ private:
   std::string const name_;
 };
 } // namespace kensington
-
-#endif

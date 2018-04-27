@@ -1,5 +1,4 @@
-#ifndef node_h
-#define node_h
+#pragma once
 
 #include <utility>
 
@@ -52,4 +51,3 @@ namespace kensington
       NodeStatus status_ = NodeStatus::EMPTY;
   };
 }
-#endif
